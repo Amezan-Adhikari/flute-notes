@@ -1,0 +1,65 @@
+@import 'tailwindcss';
+@plugin '@tailwindcss/forms';
+@plugin '@tailwindcss/typography';
+@plugin 'flowbite/plugin';
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+@theme {
+  --color-primary-50: #fff5f2;
+  --color-primary-100: #fff1ee;
+  --color-primary-200: #ffe4de;
+  --color-primary-300: #ffd5cc;
+  --color-primary-400: #ffbcad;
+  --color-primary-500: #fe795d;
+  --color-primary-600: #ef562f;
+  --color-primary-700: #eb4f27;
+  --color-primary-800: #cc4522;
+  --color-primary-900: #a5371b;
+}
+
+.poppins{
+    font-family: 'poppins', sans-serif;
+}
+@layer base {
+  button, [role="button"] {
+    cursor: pointer;
+  }
+}
+@source "../node_modules/flowbite-svelte/dist";
+
+@font-face {
+    font-family: "poppins";
+    src: url("/fonts/Poppins-Medium.ttf") format("truetype");
+}
+@font-face {
+    font-family: "poppins-SemiBold";
+    src: url("/fonts/Poppins-SemiBold.ttf") format("truetype");
+}
+@font-face {
+    font-family: "Koho";
+    src: url("/fonts/KoHo-Bold.ttf") format("truetype");
+}
+
+/* colors */
+.Logo{
+    color: #3540BC;
+}
+
+input{
+    border: none;
+    outline: none;
+    border-radius: 5px;
+    padding: 10px;
+    font-family: 'poppins', sans-serif;
+}
+
+.scrollbar-none {
+    overflow: auto;          /* or scroll */
+    scrollbar-width: none;   /* Firefox */
+    -ms-overflow-style: none; /* IE and Edge */
+  }
+  
+  .scrollbar-none::-webkit-scrollbar {
+    display: none;           /* Chrome, Safari, and Opera */
+  }
