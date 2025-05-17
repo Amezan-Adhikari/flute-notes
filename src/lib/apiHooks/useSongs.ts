@@ -17,7 +17,8 @@ export const queryKeys = {
 export function getAllSongs() {
 	return createQuery({
 		queryKey: queryKeys.songs,
-		queryFn: songsApi.getAllSongs
+		queryFn: songsApi.getAllSongs,
+		staleTime: 1000 * 60 * 5 // 5 minutes
 	});
 }
 
@@ -72,14 +73,16 @@ export function getSongNotation(songId: number) {
 export function getPopularSongs(activeFilter: string) {
 	return createQuery({
 		queryKey: queryKeys.popularSongs,
-		queryFn: () => songsApi.getPopularSongs(activeFilter)
+		queryFn: () => songsApi.getPopularSongs(activeFilter),
+		staleTime: 1000 * 60 * 5 // 5 minutes
 	});
 }
 
 export function getTrendingSongs() {
 	return createQuery({
 		queryKey: queryKeys.trendingSongs,
-		queryFn: songsApi.getTrendingSongs
+		queryFn: songsApi.getTrendingSongs,
+		staleTime: 1000 * 60 * 5 // 5 minutes
 	});
 }
 
@@ -111,7 +114,8 @@ export function getAllSongsBySearch(searchQuery: string) {
 export function getAllCategories() {
 	return createQuery({
 		queryKey: queryKeys.categories,
-		queryFn: categoriesApi.getAllCategories
+		queryFn: categoriesApi.getAllCategories,
+		staleTime: 1000 * 60 * 5 // 5 minutes
 	});
 }
 
