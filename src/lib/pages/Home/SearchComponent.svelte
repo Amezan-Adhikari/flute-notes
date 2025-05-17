@@ -47,7 +47,7 @@
       if (redirectOnClick) {
         // If the song has a slug use it, otherwise generate from title
         const songUrl = result.slug 
-          ? `/song/${result.slug}` 
+          ? `/allsongs/${result.slug}/notation`
           : `/song/${result.id}/${result.title.toLowerCase().replace(/\s+/g, '-')}`;
         window.location.href = songUrl;
       }

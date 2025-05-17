@@ -58,7 +58,7 @@
     {:else}
       <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
         {#each $searchResults.data as song}
-          <a href={`/song/${song.id}/${song.slug || song.title.toLowerCase().replace(/\s+/g, '-')}`} class="block">
+          <a href={`/allsongs/${song.id}/notation`} class="block">
             <div class="bg-white rounded-lg shadow hover:shadow-md transition border border-gray-300 p-4">
               <div class="flex justify-between items-start mb-2">
                 {#if song.difficulty}

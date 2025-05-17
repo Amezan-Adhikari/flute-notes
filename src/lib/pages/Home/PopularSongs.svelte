@@ -23,7 +23,7 @@
         {#each $popularSongsQuery.data as item}
             <div
                 class="bg-white rounded-lg shadow border border-gray-300 hover:shadow-md transition p-4 cursor-pointer h-full"
-                on:click={() => goto(`/song/${item.song.id}`)}
+                on:click={() => goto(`/allsongs/${item.song.id}/notation`)}
             >
                 <div class="flex justify-between items-start mb-2">
                     <span class="bg-blue-200 text-blue-900 text-xs px-2 py-1 rounded font-medium">{item.song.difficulty}</span>
@@ -31,7 +31,7 @@
                 </div>
                 <h3 class="font-medium text-gray-800">{item.song.title}</h3>
                 <div class="mt-3">
-                    <a href={`/song/${item.song.id}`} class="text-blue-700 hover:text-blue-900 text-sm font-medium">View sargam</a>
+                    <a href={`/allsongs/${item.song.id}/notation`} class="text-blue-700 hover:text-blue-900 text-sm font-medium">View sargam</a>
                 </div>
             </div>
         {/each}
