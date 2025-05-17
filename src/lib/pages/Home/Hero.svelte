@@ -1,21 +1,11 @@
+<!-- Updated +page.svelte (Home page) -->
 <script>
-	import Search from "$lib/components/Search.svelte";
     import Leftpane from "./Leftpane.svelte";
+	import PopularSongs from "./PopularSongs.svelte";
     import RightPane from "./RightPane.svelte";
-    let searchQuery = '';
+	import SearchComponent from "./SearchComponent.svelte";
     
-    // Sample featured songs - replace with your actual data
-    const featuredSongs = [
-        { title: "Mere Rashke Qamar", difficulty: "Intermediate", views: "10.2K" },
-        { title: "Tera Ban Jaunga", difficulty: "Beginner", views: "8.7K" },
-        { title: "Tum Hi Ho", difficulty: "Advanced", views: "15.3K" },
-        { title: "Kesariya", difficulty: "Intermediate", views: "12.1K" }
-    ];
-    
-    // Sample ragas for quick access
-    const popularRagas = [
-        "Bhairav", "Yaman", "Malkauns", "Bhimpalasi", "Darbari", "Khamaj"
-    ];
+
 </script>
 
 <section class="min-h-screen flex flex-col md:flex-row">
@@ -28,7 +18,9 @@
         <div class="flex flex-col gap-4 items-center mb-8 mt-6">
             <h1 class="font-[poppins] text-4xl md:text-6xl text-center text-gray-800">Learn flute with sargam notations</h1>
             <p class="font-[poppins] text-center max-w-sm md:max-w-xl text-base md:text-lg text-gray-700">With <span class="Logo font-[koho] font-bold">FLUTE NOTES</span>, you can search from the vast collection of songs, sargams, and ragas</p>
-            <Search bind:searchQuery={searchQuery} redirectOnEnter={true} redirectOnClick={true} />
+            <div class="w-full max-w-xl">
+                <SearchComponent redirectOnEnter={true} redirectOnClick={true} />
+            </div>
         </div>
         
         <!-- Featured Content Section -->
@@ -52,26 +44,7 @@
         </div>
         
         <!-- Featured Songs Section -->
-        <div class="mb-8">
-            <div class="flex justify-between items-center mb-4">
-                <h2 class="text-2xl font-semibold text-gray-800">Popular Songs</h2>
-                <a href="/songs" class="text-blue-700 hover:text-blue-900 text-sm font-medium">View all</a>
-            </div>
-            <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4">
-                {#each featuredSongs as song}
-                    <div class="bg-white rounded-lg shadow border border-gray-300 hover:shadow-md transition p-4">
-                        <div class="flex justify-between items-start mb-2">
-                            <span class="bg-blue-200 text-blue-900 text-xs px-2 py-1 rounded font-medium">{song.difficulty}</span>
-                            <span class="text-gray-600 text-xs font-medium">{song.views} views</span>
-                        </div>
-                        <h3 class="font-medium text-gray-800">{song.title}</h3>
-                        <div class="mt-3">
-                            <a href={`/song/${song.title.toLowerCase().replace(/\s+/g, '-')}`} class="text-blue-700 hover:text-blue-900 text-sm font-medium">View sargam</a>
-                        </div>
-                    </div>
-                {/each}
-            </div>
-        </div>
+        <PopularSongs />
         
         <!-- Newsletter Section -->
         <div class="bg-gray-100 rounded-lg p-6 mb-8 border border-gray-300 shadow-sm">
