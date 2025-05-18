@@ -7,7 +7,7 @@ import axios from 'axios';
 const BASE_URL = `https://sarega699.pythonanywhere.com/api/`;
 
 // Create API service
-const api = axios.create({
+export const api = axios.create({
 	baseURL: BASE_URL,
 	headers: {
 		'Content-Type': 'application/json',

@@ -1,9 +1,30 @@
-<script>
+<script lang="ts">
 	import { getAllCategories } from "$lib/apiHooks/useSongs";
 	import { formatPlays } from "$lib/utiils";
 
 	// Use the Svelte Query hook for categories
 	const categoriesQuery = getAllCategories();
+
+    const getCategoryHref = (categorySlug: string) => {
+        switch (categorySlug) {
+            case "hindi":
+                return "hindi-songs";
+            case "english":
+                return "english-songs";
+            case "sargams":
+                return "sargams";
+            case "all":
+                return "all-songs";
+            case "nepali":
+                return "nepali-songs";
+            case "theme":
+                return "sargams";
+            case "classical":
+                return "sargams";
+            default:
+                return `/${categorySlug}`;
+        }
+    };
 </script>
 
 <div class="hidden md:flex md:w-72 lg:w-80 bg-gray-50 flex-col p-6 border-r border-gray-200 h-screen overflow-y-auto">
@@ -22,7 +43,7 @@
         {:else}
             <div class="space-y-3">
                 {#each $categoriesQuery.data as category}
-                    <a href="/{category.slug}" class="flex items-center p-3 rounded-lg hover:bg-white hover:shadow-sm transition-all duration-200 cursor-pointer group">
+                    <a href="/{getCategoryHref(category.slug)}" class="flex items-center p-3 rounded-lg hover:bg-white hover:shadow-sm transition-all duration-200 cursor-pointer group">
                         <div class="w-10 h-10 rounded-full flex items-center justify-center mr-3" style="background-color: {category.color}20; color: {category.color};">
                             {#if category.icon_name === "musical-notes"}
                                 <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 512 512" fill="currentColor">
