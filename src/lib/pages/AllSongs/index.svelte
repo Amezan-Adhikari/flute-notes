@@ -6,10 +6,11 @@
     import { useQueryClient, createQuery } from '@tanstack/svelte-query';
   
     import RightPane from './RightPane.svelte';
-    import SongItem from './SongItem.svelte';
+
     import Leftpane from './Leftpane.svelte';
     import Pagination from '$lib/components/Pagination.svelte';
 	import type { ISong } from '$lib/types';
+	import { SongListItem } from '$lib/components';
   
   
     interface SongResponse {
@@ -112,7 +113,7 @@
           </div>
         {:else}
           {#each filteredSongs as song}
-            <SongItem {song} />
+            <SongListItem {song} />
           {/each}
   
           <Pagination 

@@ -1,3 +1,4 @@
+import { decryptApiResponse } from '$lib/utiils';
 import axios from 'axios';
 
 // const BASE_URL= `http://192.168.1.64:8000/api/`
@@ -5,15 +6,33 @@ import axios from 'axios';
 // const BASE_URL = 'https://xlang-server.onrender.com/api/v1';  // For iOS Simulator
 
 const BASE_URL = `https://sarega699.pythonanywhere.com/api/`;
+// const BASE_URL = `http://127.0.0.1:8000/api/`;
 
 // Create API service
-const api = axios.create({
+export const api = axios.create({
 	baseURL: BASE_URL,
 	headers: {
 		'Content-Type': 'application/json',
 		Authorization: `Bearer T9x#Lp7mWzR2@jFkqP3$Nv8YtD6!Bc4hM5X&GrJ1VwKZQ%L9yTXP*F7R`
 	}
 });
+
+api.interceptors.response.use(
+	(response) => {
+		// Check if the response has data and if it's encrypted
+		if (response.data && response.data.encrypted) {
+			// Decrypt the response
+			response.data = decryptApiResponse(response.data);
+		}
+		return response;
+	},
+	(error) => {
+		// Handle errors
+		return Promise.reject(error);
+	}
+);
+
+export default api;
 
 export const categoriesApi = {
 	getAllCategories: async () => {
