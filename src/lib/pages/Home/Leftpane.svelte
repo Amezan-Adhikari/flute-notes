@@ -127,12 +127,12 @@
 
 	<!-- Ad Space -->
 	<div class="mb-8">
-		<div class="rounded-lg bg-gray-100 p-4 text-center">
+		<!-- <div class="rounded-lg bg-gray-100 p-4 text-center">
 			<p class="mb-2 text-sm text-gray-600">Advertisement</p>
 			<div class="flex h-32 items-center justify-center rounded border border-gray-300 bg-gray-200">
 				<span class="text-gray-500">Ad Space</span>
 			</div>
-		</div>
+		</div> -->
 	</div>
 
 	<!-- Top Songs of All Time (Commented out in the original) -->
