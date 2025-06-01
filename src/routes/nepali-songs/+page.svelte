@@ -1,6 +1,5 @@
 <script>
-
-	import { NepaliSongs } from "$lib/pages/NepaliSongs";
-
+	import { NepaliSongs } from '$lib/pages/NepaliSongs';
 </script>
+
 <NepaliSongs />
