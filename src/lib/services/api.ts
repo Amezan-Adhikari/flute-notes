@@ -5,8 +5,8 @@ import axios from 'axios';
 // const BASE_URL = 'http://192.168.1.64:8000/api';  // For Android Emulator
 // const BASE_URL = 'https://xlang-server.onrender.com/api/v1';  // For iOS Simulator
 
-const BASE_URL = `https://sarega699.pythonanywhere.com/api/`;
-// const BASE_URL = `http://127.0.0.1:8000/api/`;
+// const BASE_URL = `https://sarega699.pythonanywhere.com/api/`;
+const BASE_URL = `http://127.0.0.1:8000/api/`;
 
 // Create API service
 export const api = axios.create({

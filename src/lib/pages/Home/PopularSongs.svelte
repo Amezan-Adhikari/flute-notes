@@ -38,7 +38,7 @@
 					<h3 class="font-medium text-gray-800">{item.song.title}</h3>
 					<div class="mt-3">
 						<a
-							href={`/allsongs/${item.song.id}/notation`}
+							href={`/all-songs/${item.song.id}/notation`}
 							class="text-sm font-medium text-blue-700 hover:text-blue-900">View sargam</a
 						>
 					</div>
